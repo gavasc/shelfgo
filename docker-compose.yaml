@@ -1,0 +1,22 @@
+services:
+  shelfgo:
+    build: .
+    container_name: shelfgo
+    environment:
+      - SHELFGO_USER=${SHELFGO_USER}
+      - SHELFGO_PASS=${SHELFGO_PASS}
+      - SHELFGO_PORT=${SHELFGO_PORT}
+      - SHELFGO_DIR=${SHELFGO_DIR}
+    volumes:
+      - ./ebooks:/ebooks
+    restart: unless-stopped
+    depends_on:
+      - cloudflared
+
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: cloudflared
+    command: tunnel --no-autoupdate run
+    environment:
+      - TUNNEL_TOKEN=${CF_TOKEN}
+    restart: unless-stopped
