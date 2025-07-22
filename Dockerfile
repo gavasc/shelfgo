@@ -1,5 +1,5 @@
 # Build Stage
-FROM golang:1.22 AS builder
+FROM golang:1.24 AS builder
 WORKDIR /app
 COPY . .
 RUN go mod tidy
