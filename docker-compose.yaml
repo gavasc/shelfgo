@@ -10,12 +10,14 @@ services:
     volumes:
       - ./ebooks:/ebooks
     restart: unless-stopped
+    ports:
+      - ${SHELFGO_PORT}:${SHELFGO_PORT}
     depends_on:
       - cloudflared
 
   cloudflared:
     image: cloudflare/cloudflared:latest
-    container_name: cloudflared
+    container_name: shelfgo-cloudflared
     command: tunnel --no-autoupdate run
     environment:
       - TUNNEL_TOKEN=${CF_TOKEN}
