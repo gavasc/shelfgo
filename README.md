@@ -15,7 +15,7 @@ Optimal for hosting in your homelab.
 
 ## 🛠️ Usage
 
-### 1. Clone and Build
+### 1. Clone
 ```bash
 git clone https://github.com/gavasc/shelfgo.git
 cd shelfgo
