@@ -12,8 +12,8 @@ type Config struct {
 
 // opens the config file and decodes it, returning the config if no error occurs
 func Load() (Config, error) {
-	confFile, err := os.Open("./config.json")
 	log.Print("Loading config file")
+	confFile, err := os.Open("config/config.json")
 	if err != nil {
 		return Config{}, err
 	}

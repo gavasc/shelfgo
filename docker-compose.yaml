@@ -8,7 +8,7 @@ services:
       - SHELFGO_PORT=${SHELFGO_PORT}
       - SHELFGO_DIR=${SHELFGO_DIR}
     volumes:
-      - ./ebooks:/ebooks
+      - ./docs:/docs
     restart: unless-stopped
     ports:
       - ${SHELFGO_PORT}:${SHELFGO_PORT}
