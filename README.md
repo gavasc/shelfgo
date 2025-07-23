@@ -19,7 +19,6 @@ Optimal for hosting in your homelab.
 ```bash
 git clone https://github.com/gavasc/shelfgo.git
 cd shelfgo
-docker compose up --build -d
 ```
 
 ### 2. Environment Variables
@@ -41,13 +40,20 @@ SHELFGO_DIR=/ebooks
 CF_TOKEN=your_cloudflared_token
 ```
 
-### 3. Run with Docker Compose
+### 3. Config file inside /config/
+```javascript
+{
+    "allowed_formats": [".epub", ".pdf", ...]
+}
+```
+
+### 4. Run with Docker Compose
 This setup includes:
 - `shelfgo`: the WebDAV server
 - `cloudflared`: Cloudflare Tunnel for secure public access
 
 ```bash
-docker compose up -d
+docker compose up --build -d
 ```
 
 ---
