@@ -52,7 +52,7 @@ func main() {
 	})
 
 	log.Printf("Starting ShelfGo server on port %s, serving files from %s", port, serveDir)
-	err = http.ListenAndServe(":"+port, handler)
+	err = http.ListenAndServe(":"+port, nil)
 	if err != nil {
 		log.Fatal(err)
 	}
